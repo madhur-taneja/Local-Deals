@@ -1,0 +1,19 @@
+<h1> BISCUITS </h1>
+<table #content class="table table-hover">
+  <thead>
+    <tr>
+      <th class="text-center">{{tableTitle}}</th>
+      <th class="text-center">{{tablePrice}}</th>
+      <!-- <th>{{tableIsAvail}}</th> -->
+      <!-- <th> Action </th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of itemList">
+      <td>{{i.title}}</td>
+      <td>{{i.price}}</td>
+      <!-- <td>{{book.isAvail}}3</td> -->
+      <!-- <td> <button class="btn btn-primary" (click)="editBook(book)" [disabled]="displayEditForm"> Edit </button> </td> -->
+    </tr>
+  </tbody>
+</table>
