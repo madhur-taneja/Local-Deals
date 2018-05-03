@@ -8,13 +8,19 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { CategoriesPageContentComponent } from './categories-page-content/categories-page-content.component';
 
 import { ShopkeeperService } from './services/shopkeeper.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesPageComponent,
     MainPageComponent,
-    CategoriesPageContentComponent
+    CategoriesPageContentComponent,
+    NavbarComponent,
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
