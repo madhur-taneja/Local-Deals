@@ -9,12 +9,13 @@ export class ShopkeeperService {
   constructor(private http: HttpClient) { }
 
   public getCategoryListFromDB() {
-    console.log("Inside ShopkeeperService");
-    return this.http.get<categoryInterface[]>('http:localhost:1354/getCategory');
+    console.log("getCategorylist request fired!");
+    return this.http.get<categoryInterface[]>("http://localhost:1354/getCategory");
   }
 
   public getItemListFromDB() {
-
+    console.log("getItemList request fired!");
+    return this.http.get<itemInterface[]>("http://localhost:1354/getItem")
   }
 
 }

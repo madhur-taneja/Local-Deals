@@ -43,6 +43,25 @@ app.get('/getCategory', function (req, res) {
   });
 });
 
+app.get('/getitem:category', function (req, res) {
+    res.set({
+        // to set type of response and allowing response from lh:4200 port
+        'Content-type' : 'application/json',
+        'Access-Control-Allow-Origin' : 'http://localhost:4200'
+    });
+  
+    // fetching data from database and sending as a response
+    Item.find({}, function(err, success){
+        if(err){
+            throw err;
+        }
+        else{
+            console.log('Get Category request was fired!');
+            res.send(success);
+        }
+    });
+  });  
+
 const port  = 1354;
 app.listen(port, function () {
         console.log('App listening on port 1354!');
