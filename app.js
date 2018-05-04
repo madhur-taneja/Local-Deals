@@ -8,61 +8,16 @@ var config = require('./config.json');
 mongoose.connect(config.connectionString);
 app.use(bodyParser.json());
 
-// defining category table Schema
-var CategorySchema = mongoose.Schema({
-  title: {
-    type: String,
-    require : true
-  },
-  id : Number
-})
+// Hosting /static 's content on backend --- specificly index.html in /static
+app.use('', express.static('static'));
+app.use('/home', express.static('static'));
 
-// making a table reference
-var Category = mongoose.model('categoryModel', CategorySchema, 'category');
 
-app.get('/', function (req, res) {
-    res.send('Hello Developer!');
-});
-
-app.get('/getCategory', function (req, res) {
-  res.set({
-      // to set type of response and allowing response from lh:4200 port
-      'Content-type' : 'application/json',
-      'Access-Control-Allow-Origin' : 'http://localhost:4200'
-  });
-
-  // fetching data from database and sending as a response
-  Category.find({}, function(err, success){
-      if(err){
-          throw err;
-      }
-      else{
-          console.log('Get Category request was fired!');
-          res.send(success);
-      }
-  });
-});
-
-app.get('/getitem:category', function (req, res) {
-    res.set({
-        // to set type of response and allowing response from lh:4200 port
-        'Content-type' : 'application/json',
-        'Access-Control-Allow-Origin' : 'http://localhost:4200'
-    });
-  
-    // fetching data from database and sending as a response
-    Item.find({}, function(err, success){
-        if(err){
-            throw err;
-        }
-        else{
-            console.log('Get Category request was fired!');
-            res.send(success);
-        }
-    });
-  });  
+// Routing the /shopkeeper request to shopkeeper.js
+var shopkeeperRoute = require('./models/shopkeeper');
+app.use('/shopkeeper', shopkeeperRoute);
 
 const port  = 1354;
-app.listen(port, function () {
+app.listen(port, ()=>{
         console.log('App listening on port 1354!');
 });

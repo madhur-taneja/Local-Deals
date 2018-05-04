@@ -10,12 +10,12 @@ export class ShopkeeperService {
 
   public getCategoryListFromDB() {
     console.log("getCategorylist request fired!");
-    return this.http.get<categoryInterface[]>("http://localhost:1354/getCategory");
+    return this.http.get<categoryInterface[]>("http://localhost:1354/shopkeeper/getCategory");
   }
 
-  public getItemListFromDB() {
-    console.log("getItemList request fired!");
-    return this.http.get<itemInterface[]>("http://localhost:1354/getItem")
+  public getItemListFromDB(category : categoryInterface) {
+    console.log("getItem request fired!");
+    return this.http.get<itemInterface[]>(`http://localhost:1354/shopkeeper/getItem/${category.id}`);
   }
 
 }

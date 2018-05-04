@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ShopkeeperService } from '../services/shopkeeper.service';
+import { itemInterface } from '../models/item';
+import { categoryInterface, category } from '../models/category';
 
 @Component({
   selector: 'app-categories-page-content',
@@ -7,18 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesPageContentComponent implements OnInit {
 
-  private itemList = [
-  	{title: "Tea", price: "Rs. 10.00", id:1},
-  	{title: "Coffee", price: "Rs. 15.00", id:2}
-  ];
+  @Input() itemList:itemInterface[];
+  @Input() tableHeader;
 
   private tableTitle = "Item-Title";
   private tablePrice = "Item-Price";
-  // private tableIsAvail = "Available?";
+  // private tableIsAvail = "Available";
 
-  constructor() { }
+  constructor(private shopkeeperService:ShopkeeperService) { }
 
   ngOnInit() {
+    console.log("Content has been loded!");
   }
 
 }

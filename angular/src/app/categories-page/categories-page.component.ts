@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ContentChild } from '@angular/core';
 import { ShopkeeperService } from '../services/shopkeeper.service';
-import {categoryInterface} from '../models/category';
+import { categoryInterface } from '../models/category';
+import { itemInterface } from '../models/item';
 
 @Component({
   selector: 'app-categories-page',
@@ -9,20 +10,29 @@ import {categoryInterface} from '../models/category';
 })
 export class CategoriesPageComponent implements OnInit {
 
-  constructor(private shopkeeperService: ShopkeeperService) {
-  }
   // to store data from database
   private categoryList;
+  private displayEdit = false;
+  private itemListFromParent:itemInterface[];
+  private categoryHeader;
 
+  constructor(private shopkeeperService: ShopkeeperService) {
+  }
+  
   ngOnInit() {
     this.shopkeeperService.getCategoryListFromDB().subscribe((response)=> {
-      //console.log(`The response from backend is ${response}`);
+      console.log(`The response from backend is ${response}`);
       this.categoryList = response;
     });
   }
-  
-  public getCategoryItems(categoryTitle) {
-    console.log(`The category is: ${categoryTitle}`);
+    
+  public getCategoryItems(category: categoryInterface) {
+    console.log(`Calling child method for getting items : ${category}`);
+    this.categoryHeader = category.title;
+    this.shopkeeperService.getItemListFromDB(category).subscribe((response) => {
+      this.itemListFromParent = response;
+    })
+    this.displayEdit = true;
   }
 
 }
