@@ -3,22 +3,21 @@
     <nav id="sidebar">
             <!-- Sidebar Header -->
             <div class="sidebar-header">
-                <h2>DASHBOARD</h2>
+                <h2>Dashboard</h2>
             </div>
 
-            <!-- Sidebar Links -->
+            <!-- Sidebar categories -->
             <ul class="list-unstyled components">
                 <li class="active"><a href="#">HOME</a></li>
-                <li *ngFor="let cate of categoryList"
-                  (click)=getCategoryItems(cate.title)>
-                    <a href="#">{{cate.title}}</a>
+                <li *ngFor="let category of categoryList"
+                  (click)=getCategoryItems(category)>
+                    <a href="#">{{category.title}}</a>
                 </li>
             </ul>
       </nav>
   </div>
 
   <div class="col-md-9 categories-dashboard">
-    <app-categories-page-content> </app-categories-page-content>
+   <app-categories-page-content *ngIf="displayEdit" [itemList] = "itemListFromParent" [tableHeader]= "categoryHeader"></app-categories-page-content>   
   </div>
-
 </div>
