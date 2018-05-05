@@ -11,6 +11,9 @@ import { ShopkeeperService } from './services/shopkeeper.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { FooterComponent } from './footer/footer.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { SignInComponent } from './sign-in/sign-in.component';
     CategoriesPageContentComponent,
     NavbarComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    AuthenticationComponent,
+    FooterComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
