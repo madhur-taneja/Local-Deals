@@ -18,7 +18,7 @@ span {
 
 #form-reset {
   margin-top: 5%;
-  border: 5px solid white;
+  /* border: 5px solid white; */
   padding: 5%;
   border-radius: 25px;
 }
@@ -92,4 +92,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.sho {
+  float: right;
 }

@@ -52,15 +52,36 @@ th {
   font-size: 16px;
 }
 
+.border {
+  border: 3px solid white;
+}
+
+.border-right {
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  background: #233640;
+}
+
+.border-left {
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  background: #233640;
+  /* background: #1a252f; */
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.form,
 .about-us {
   color: white;
   background: #476878;
   /* padding-bottom: 5%; */
-}
-
-
-.sho {
-  float: right;
 }
 
 .nb,
