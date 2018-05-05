@@ -11,7 +11,7 @@
                 <li class="active"><a href="#">HOME</a></li>
                 <li *ngFor="let category of categoryList"
                   (click)=getCategoryItems(category)>
-                    <a href="#">{{category.title}}</a>
+                    <a>{{category.title}}</a>
                 </li>
             </ul>
       </nav>

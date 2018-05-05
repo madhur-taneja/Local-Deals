@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -22,7 +21,7 @@ const routes: Routes = [
   { path: '', redirectTo:'home', pathMatch:'full' },
   { path: 'login', component : MainPageComponent },
   { path: 'home', component : MainPageComponent },
-  { path: 'shopkeeper/dashboard', component : CategoriesPageComponent }
+  { path: 'shopkeeper/dashboard', component : CategoriesPageComponent}
 ]
 
 
@@ -41,7 +40,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ShopkeeperService, HttpClient],
   bootstrap: [AppComponent]
